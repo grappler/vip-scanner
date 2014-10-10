@@ -5,6 +5,15 @@ abstract class BaseCheck
 	protected $check_count = 0;
 	protected $errors = array();
 	protected $scanner;
+	protected $development_directories = apply_filters(
+		'vip_scanner_development_directories',
+		array(
+			'/.git',
+			'/.svn',
+			'/.sass-cache',
+			'/node_modules',
+		)
+	);
 
 	// Returns true for good/okay/acceptable, false for bad/not-okay/unacceptable
 	abstract public function check( $files );

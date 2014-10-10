@@ -50,6 +50,16 @@ class BaseScanner {
 		'^Thumbs.db$',
 		'^WS_FTP.*',
 	);
+	//these folders are used in development and are excluded from the scans
+	public $development_directories = apply_filters(
+		'vip_scanner_development_directories',
+		array(
+			'/.git',
+			'/.svn',
+			'/.sass-cache',
+			'/node_modules',
+		)
+	);
 
 
 	public function __construct( $files, $review ) {
